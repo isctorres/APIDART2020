@@ -1,4 +1,5 @@
 import 'apimoviles.dart';
+import 'package:apimoviles/controller/UserTypeController.dart';
 
 /// This type initializes an application.
 ///
@@ -35,11 +36,13 @@ class ApimovilesChannel extends ApplicationChannel {
 
     // Prefer to use `link` instead of `linkFunction`.
     // See: https://aqueduct.io/docs/http/request_controller/
-    router
+    /*router
       .route("/example")
       .linkFunction((request) async {
         return Response.ok({"key": "value"});
-      });
+      });*/
+
+      router.route("/usertype[/:idtype]").link(()=>UserTypeController(context));
 
     return router;
   }

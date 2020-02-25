@@ -1,4 +1,5 @@
 import 'package:apimoviles/apimoviles.dart';
+import 'package:apimoviles/model/Activities.dart';
 
 class ActivitiesController extends ResourceController{
 
@@ -15,7 +16,7 @@ class ActivitiesController extends ResourceController{
   @Operation.get('idActividad')
   Future<Response> getActividadById(@Bind.path('idActividad') int idAct) async{
     final activitiesQuery = Query<Activities>(context)..
-    where((a)=>a.idActividad).equalTo(idAct);
+    where((a)=>a.idActivity).equalTo(idAct);
     final resActivities = await activitiesQuery.fetch();
     return Response.ok(resActivities);
   }
@@ -24,25 +25,24 @@ class ActivitiesController extends ResourceController{
   Future<Response> insActividad() async {
     final objActividad = Activities()..read(await request.body.decode());
     final query = Query<Activities>(context)..values = objActividad;
-    final insActividad = await query.insert();
-    return Response.ok(insActividad); 
+    final insert = await query.insert();
+    return Response.ok(insert); 
   }
 
   @Operation.put()
   Future<Response> updActividad(@Bind.path('idActividad') int idAct) async {
     final objActividad = Activities()..read(await request.body.decode());
     final queryActividad = Query<Activities>(context)..
-          where((a)=>a.idActividad).equalTo(idAct)..values = objActividad;
-    final updActividad = await queryActividad.updateOne();
-    return Response.ok(updActividad);
+          where((a)=>a.idActivity).equalTo(idAct)..values = objActividad;
+    final update = await queryActividad.updateOne();
+    return Response.ok(update);
   }
 
   @Operation.delete('idActividad')
   Future<Response> delActividad(@Bind.path('idActividad') int idAct) async{
     final queryActividad = Query<Activities>(context)..
-          where((a)=>a.idActividad).equalTo(idAct);
-    final delActividad = await queryActividad.delete();
-    return Response.ok(delActividad);
+          where((a)=>a.idActivity).equalTo(idAct);
+    final update = await queryActividad.delete();
+    return Response.ok(update);
   }
-
 }
