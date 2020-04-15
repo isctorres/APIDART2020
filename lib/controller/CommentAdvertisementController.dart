@@ -30,7 +30,7 @@ class CommentAdvertisementController extends ResourceController{
     return Response.ok(insert); 
   }
 
-  @Operation.put()
+  @Operation.put('idCommentAdvertisement')
   Future<Response> updCommentAdvertisement(@Bind.path('idCommentAdvertisement') int idComentAdv) async {
     final objCommentAdvertisement = CommentAdvertisement()..read(await request.body.decode());
     final queryCommentAdvertisement = Query<CommentAdvertisement>(context)..

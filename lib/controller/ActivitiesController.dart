@@ -29,7 +29,7 @@ class ActivitiesController extends ResourceController{
     return Response.ok(insert); 
   }
 
-  @Operation.put()
+  @Operation.put('idActividad')
   Future<Response> updActividad(@Bind.path('idActividad') int idAct) async {
     final objActividad = Activities()..read(await request.body.decode());
     final queryActividad = Query<Activities>(context)..

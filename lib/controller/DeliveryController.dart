@@ -29,7 +29,7 @@ class DeliveryController extends ResourceController{
     return Response.ok(insert); 
   }
 
-  @Operation.put()
+  @Operation.put('idDelivery')
   Future<Response> updDelivery(@Bind.path('idDelivery') int idDelivery) async {
     final objDelivery = Delivery()..read(await request.body.decode());
     final queryDelivery = Query<Delivery>(context)..

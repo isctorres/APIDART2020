@@ -29,7 +29,7 @@ class UserTypeController extends ResourceController{
     return Response.ok(insert); 
   }
 
-  @Operation.put()
+  @Operation.put('idUserType')
   Future<Response> updUserType(@Bind.path('idUserType') int idUserType) async {
     final objUserType = UserType()..read(await request.body.decode());
     final queryUserType = Query<UserType>(context)..

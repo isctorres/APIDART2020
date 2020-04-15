@@ -29,7 +29,7 @@ class CourseController extends ResourceController{
     return Response.ok(insert); 
   }
 
-  @Operation.put()
+  @Operation.put('idCourse')
   Future<Response> updCourse(@Bind.path('idCourse') int idCourse) async {
     final objCourse = Course()..read(await request.body.decode());
     final queryCourse = Query<Course>(context)..

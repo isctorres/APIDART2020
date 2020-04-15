@@ -1,4 +1,5 @@
 import 'package:apimoviles/apimoviles.dart';
+import 'package:apimoviles/model/Activities.dart';
 import 'package:apimoviles/model/Advertisement.dart';
 import 'package:apimoviles/model/Users.dart';
 
@@ -12,7 +13,7 @@ class tblCommentActivity{
     DateTime dateCommentActivity;
 
     @Relate(#fkactivity2)
-    Advertisement idAdvertisement;
+    Activities idActivity;
 
     @Relate(#fkstudent3)
     Users idStudent;

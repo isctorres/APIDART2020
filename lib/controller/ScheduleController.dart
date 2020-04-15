@@ -29,7 +29,7 @@ class ScheduleController extends ResourceController{
     return Response.ok(insert); 
   }
 
-  @Operation.put()
+  @Operation.put('idSchedule')
   Future<Response> updSchedule(@Bind.path('idSchedule') int idSchedule) async {
     final objSchedule = Schedule()..read(await request.body.decode());
     final querySchedule = Query<Schedule>(context)..

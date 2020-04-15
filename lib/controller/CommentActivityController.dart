@@ -30,7 +30,7 @@ class CommentActivityController extends ResourceController{
     return Response.ok(insert); 
   }
 
-  @Operation.put()
+  @Operation.put('idCommentAct')
   Future<Response> updCommentAct(@Bind.path('idCommentAct') int idCA) async {
     final objCommentAct = CommentActivity()..read(await request.body.decode());
     final queryCommentAct = Query<CommentActivity>(context)..

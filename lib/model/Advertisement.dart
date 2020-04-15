@@ -10,7 +10,7 @@ class tblAdvertisement{
   String notice;
   DateTime dateAdvertisement;
 
-  @Relate(#fkcouser3)
+  @Relate(#fkcourse3)
   Course idCourse;
 
   ManagedSet<CommentAdvertisement> fkadvertisement;
